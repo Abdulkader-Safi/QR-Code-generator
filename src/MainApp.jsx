@@ -5,10 +5,6 @@ import "./App.css";
 const MainApp = () => {
   const [text, setText] = useState("");
 
-  const generateQR = (e) => {
-    setText();
-  };
-
   const handleChange = (e) => {
     setText(e.target.value);
   };
@@ -16,8 +12,14 @@ const MainApp = () => {
   return (
     <div className="App">
       <h1>QR Code Generator</h1>
-      <QRCode value={text} />
-
+      <div style={{ height: "auto", margin: "0 auto", maxWidth: 64, width: "100%" }}>
+        <QRCode
+          size={256}
+          style={{ height: "auto", maxWidth: "100%", width: "100%" }}
+          value={text}
+          viewBox={`0 0 256 256`}
+        />
+      </div>
       <div className="input-here">
         <p>Enter your text here</p>
         <input
